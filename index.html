@@ -98,6 +98,14 @@ h1 .grad{background:linear-gradient(100deg,var(--ink) 30%,var(--blue) 70%,var(--
 @keyframes blink{50%{opacity:0}}
 .bio{max-width:540px;margin-top:18px;color:var(--ink-2);font-size:16.5px}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.social a{--c:var(--ink);position:relative;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s,box-shadow .25s}
+.social a svg{width:20px;height:20px;fill:currentColor}
+.social a:hover{transform:translateY(-4px);background:var(--c);border-color:var(--c);color:#fff;box-shadow:0 12px 22px -10px var(--c)}
+.social a::after{content:attr(data-label);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translate(-50%,4px);white-space:nowrap;
+  font-size:12px;font-weight:600;color:#fff;background:var(--ink);padding:4px 9px;border-radius:7px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.social a:hover::after{opacity:1;transform:translate(-50%,0)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:12px 20px;border-radius:12px;border:1px solid transparent;transition:transform .2s var(--ease),box-shadow .2s,background .2s}
 .btn svg{width:17px;height:17px;fill:currentColor}
 .btn-p{background:var(--ink);color:#fff;box-shadow:0 10px 24px -12px rgba(15,23,42,.6)}
@@ -241,6 +249,7 @@ footer{max-width:960px;margin:96px auto 0;padding:26px 22px 40px;border-top:1px 
         <a class="btn btn-p" href="#contact"><span data-t="cta1"></span><svg viewBox="0 0 24 24"><path d="M13 5l7 7-7 7M20 12H4" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn btn-s" href="#projects" data-t="cta2"></a>
       </div>
+      <div class="social rv" id="social" aria-label="Social links"></div>
     </div>
     <div class="art rv">
       <div class="avatar tilt" data-tilt="14"><span class="lift" id="initial"></span>
@@ -295,7 +304,7 @@ const PROFILE = {
   name: "Nguyễn Hữu Văn",
   initial: "V",
   socials: {
-    facebook: "", tiktok: "", zalo: "", telegram: "", instagram: "", youtube: "", github: "", x: "",
+    facebook: "", tiktok: "", zalo: "", telegram: "", instagram: "", youtube: "", github: "https://github.com/vanxharu", x: "",
     email: "vanvanvanvan20122000@gmail.com"
   },
   // ⚠ SỐ LIỆU MẪU — thay bằng số thật của bạn
@@ -340,17 +349,17 @@ const SERVICES = [
 ];
 
 const T = {
-  vi: { status:"Đang nhận dự án", hello:"Xin chào, mình là", iam:"Mình làm", bio:"Mình làm MMO, cung cấp dịch vụ mạng xã hội và nhận dự án freelance. Am hiểu và thành thạo AI, ứng dụng AI vào công việc để làm nhanh hơn và hiệu quả hơn.",
+  vi: { status:"Đang nhận dự án", hello:"Xin chào, mình là", iam:"Mình làm", bio:"Freelancer chuyên về MMO và dịch vụ mạng xã hội, thành thạo ứng dụng AI vào toàn bộ quy trình làm việc — từ sáng tạo nội dung đến tự động hoá — nhằm mang lại kết quả nhanh, chính xác và hiệu quả cho từng dự án.",
         words:["MMO","dịch vụ mạng xã hội","freelance","ứng dụng AI"], cta1:"Liên hệ ngay", cta2:"Xem dự án",
         nav_services:"Dịch vụ", nav_skills:"Kỹ năng", nav_projects:"Dự án", nav_contact:"Liên hệ",
         services_h:"Mình có thể giúp gì cho bạn?", skills_h:"Kỹ năng & mức độ thành thạo", projects_h:"Sản phẩm đã làm", contact_h:"Cùng làm việc nhé",
         email:"Gửi email", copied:"Đã sao chép", top:"Lên đầu trang ↑", rights:"Thiết kế & phát triển bởi" },
-  en: { status:"Open for work", hello:"Hi, I'm", iam:"I do", bio:"I work in MMO, provide social media services and take on freelance projects. I know AI inside out and use it every day to work faster and smarter.",
+  en: { status:"Open for work", hello:"Hi, I'm", iam:"I do", bio:"Freelancer specializing in MMO and social media services, with deep expertise in AI. I apply AI across the entire workflow — from content creation to automation — to deliver fast, accurate and effective results on every project.",
         words:["MMO","social media services","freelance work","AI solutions"], cta1:"Get in touch", cta2:"See projects",
         nav_services:"Services", nav_skills:"Skills", nav_projects:"Projects", nav_contact:"Contact",
         services_h:"How can I help you?", skills_h:"Skills & proficiency", projects_h:"Things I've built", contact_h:"Let's work together",
         email:"Email me", copied:"Copied", top:"Back to top ↑", rights:"Designed & built by" },
-  ja: { status:"お仕事受付中", hello:"こんにちは、", iam:"専門：", bio:"MMO、SNS運用サービス、フリーランスの仕事をしています。AIに精通しており、AIを活用して仕事をより速く、より効率的に進めています。",
+  ja: { status:"お仕事受付中", hello:"こんにちは、", iam:"専門：", bio:"MMOとSNS運用サービスを専門とするフリーランス。コンテンツ制作から業務の自動化まで、ワークフロー全体にAIを活用し、一つひとつのプロジェクトに迅速・正確・効果的な成果をお届けします。",
         words:["MMO","SNS運用サービス","フリーランス","AI活用"], cta1:"お問い合わせ", cta2:"プロジェクトを見る",
         nav_services:"サービス", nav_skills:"スキル", nav_projects:"プロジェクト", nav_contact:"連絡先",
         services_h:"どんなお手伝いができますか？", skills_h:"スキルと習熟度", projects_h:"制作実績", contact_h:"一緒にお仕事しましょう",
@@ -368,6 +377,7 @@ const ICON = {
   x:'<path d="M17.8 3h3.1l-6.8 7.7 8 10.3h-6.2l-4.9-6.3L5.4 21H2.3l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/>',
   email:'<path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.2l-8 5-8-5V6l8 5 8-5v2.2z"/>'
 };
+const BRAND = { facebook:"#1877f2", tiktok:"#111111", zalo:"#0068ff", telegram:"#229ed9", instagram:"#e1306c", youtube:"#ff0000", github:"#181717", x:"#000000", email:"#2563eb" };
 const LABEL = { facebook:"Facebook", tiktok:"TikTok", zalo:"Zalo", telegram:"Telegram", instagram:"Instagram", youtube:"YouTube", github:"GitHub", x:"X" };
 const ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg>';
 
@@ -415,6 +425,11 @@ function render(lang, swap) {
        <span class="ic"><svg viewBox="0 0 24 24">${ICON[k]}</svg></span>
        <span class="tx"><b>${isMail ? t.email : LABEL[k]}</b><span>${esc(isMail ? u : pretty(u))}</span></span>
        <span class="go">${ARROW}</span></a>`;
+  }).join("");
+
+  $("#social").innerHTML = Object.entries(PROFILE.socials).filter(([, u]) => u).map(([k, u]) => {
+    const isMail = k === "email", label = isMail ? t.email : LABEL[k];
+    return `<a href="${esc(isMail ? "mailto:" + u : u)}" ${isMail ? "" : 'target="_blank" rel="noopener"'} style="--c:${BRAND[k]}" data-label="${esc(label)}" aria-label="${esc(label)}"><svg viewBox="0 0 24 24">${ICON[k]}</svg></a>`;
   }).join("");
 
   $("#copy").textContent = `© ${new Date().getFullYear()} ${PROFILE.name}`;
