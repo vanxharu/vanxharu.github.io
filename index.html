@@ -98,7 +98,7 @@ h1 .grad{background:linear-gradient(100deg,var(--ink) 30%,var(--blue) 70%,var(--
 @keyframes blink{50%{opacity:0}}
 .bio{max-width:540px;margin-top:18px;color:var(--ink-2);font-size:16.5px}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin:-2px 0 20px}
 .social a{--c:var(--ink);position:relative;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:var(--ink-2);
   background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s,box-shadow .25s}
 .social a svg{width:20px;height:20px;fill:currentColor}
@@ -243,13 +243,13 @@ footer{max-width:960px;margin:96px auto 0;padding:26px 22px 40px;border-top:1px 
       <div class="status rv"><i></i><span data-t="status"></span></div>
       <p class="hello rv" data-t="hello"></p>
       <h1 class="rv"><span class="grad" id="name"></span></h1>
+      <div class="social rv" id="social" aria-label="Social links"></div>
       <p class="typed rv" aria-live="polite"><span data-t="iam"></span> <span class="w" id="typed"></span><span class="caret"></span></p>
       <p class="bio rv" data-t="bio"></p>
       <div class="cta rv">
         <a class="btn btn-p" href="#contact"><span data-t="cta1"></span><svg viewBox="0 0 24 24"><path d="M13 5l7 7-7 7M20 12H4" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn btn-s" href="#projects" data-t="cta2"></a>
       </div>
-      <div class="social rv" id="social" aria-label="Social links"></div>
     </div>
     <div class="art rv">
       <div class="avatar tilt" data-tilt="14"><span class="lift" id="initial"></span>
@@ -304,7 +304,7 @@ const PROFILE = {
   name: "Nguyễn Hữu Văn",
   initial: "V",
   socials: {
-    facebook: "", tiktok: "", zalo: "", telegram: "", instagram: "", youtube: "", github: "https://github.com/vanxharu", x: "",
+    facebook: "", zalo: "", tiktok: "", telegram: "", instagram: "", youtube: "", github: "https://github.com/vanxharu", x: "",
     email: "vanvanvanvan20122000@gmail.com"
   },
   // ⚠ SỐ LIỆU MẪU — thay bằng số thật của bạn
